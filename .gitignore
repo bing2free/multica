@@ -79,3 +79,5 @@ data/
 __pycache__/
 *.pyc
 perf-report/
+apps/mobile/.env.production
+!apps/mobile/.env.production.example
