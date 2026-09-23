@@ -17,10 +17,16 @@
  * a message, so an unrecognised reason degrades to a plain "Failed" instead of
  * leaking an enum string at them.
  */
-const REASONS = new Set([
+/**
+ * Must stay in lockstep with the `failure_reason` keys in
+ * `locales/en/chat.json`; the drift test in `failure-reason-label.test.ts`
+ * enforces both directions.
+ */
+export const REASONS = new Set([
   // Platform / scheduler side.
   "queued_expired",
   "runtime_offline",
+  "runtime_reconnect_timeout",
   "runtime_recovery",
   "timeout",
   "iteration_limit",
@@ -29,6 +35,7 @@ const REASONS = new Set([
   "skill_bundle_unavailable",
   "runtime_cli_timeout",
   "environment_prepare_failed",
+  "invalid_task_identity",
   "runtime_access_denied",
 
   // Agent process side — provider.
@@ -49,9 +56,18 @@ const REASONS = new Set([
   "agent_error.runtime_missing_executable",
   "agent_error.unknown",
 
-  // Pre-MUL-1949 coarse values, still present on historical rows.
+  // Daemon operational reasons, outside the canonical taxonomy.
+  "agent_fallback_message",
+  "codex_resume_oversized",
+  "idle_watchdog",
+  "local_directory_error",
+  "cancelled",
+
+  // Coarse values, still present on historical rows.
+  "agent_error",
   "codex_semantic_inactivity",
   "manual",
+  "user_cancelled",
 ]);
 
 export function failureReasonKey(reason: string | null | undefined): string {

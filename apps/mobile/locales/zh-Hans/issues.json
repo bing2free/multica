@@ -14,19 +14,19 @@
     "running": "运行中",
     "completed": "完成",
     "failed": "失败",
-    "cancelled": "已取消",
-    "backlog": "待规划",
-    "todo": "待办",
-    "in_progress": "进行中",
-    "in_review": "审核中",
-    "done": "已完成",
-    "blocked": "已阻塞"
+    "cancelled": "cancelled",
+    "backlog": "backlog",
+    "todo": "todo",
+    "in_progress": "in_progress",
+    "in_review": "in_review",
+    "done": "done",
+    "blocked": "blocked"
   },
   "category": {
-    "unstarted": "未开始",
-    "started": "进行中",
-    "done": "已完成",
-    "closed": "已关闭"
+    "unstarted": "unstarted",
+    "started": "started",
+    "done": "done",
+    "closed": "closed"
   },
   "priority": {
     "none": "无优先级",
@@ -101,7 +101,7 @@
     "squad_no_action": "评估结果：无需操作",
     "squad_failed_with_reason": "评估失败：{{reason}}",
     "squad_failed": "评估失败",
-    "squad_evaluated": "评估了 squad 触发器",
+    "squad_evaluated": "评估了小队触发器",
     "commented": "发表了评论"
   },
   "errors": {
@@ -112,7 +112,7 @@
     "filtered": "没有符合当前筛选条件的任务。",
     "assigned": "没有分配给你的任务。",
     "created": "你还没有创建任务。",
-    "agents": "没有分配给智能体或 squad 的任务。",
+    "agents": "没有分配给智能体或小队的任务。",
     "all": "该工作区还没有任务。",
     "members": "没有分配给成员的任务。"
   },
@@ -153,7 +153,7 @@
     "agent": "智能体",
     "needs_runtime": "需要运行时",
     "leader_needs_runtime": "负责人需要运行时",
-    "squad": "Squad",
+    "squad": "小队",
     "no_matches": "没有匹配结果。",
     "no_project": "无项目",
     "no_projects": "该工作区还没有项目。\n请在网页端创建。",
@@ -162,7 +162,7 @@
     "no_members_agents": "该工作区还没有成员或智能体。",
     "people": "成员",
     "agents": "智能体",
-    "squads": "Squad",
+    "squads": "小队",
     "issues": "任务",
     "everyone": "所有人（@all）",
     "unknown": "未知",

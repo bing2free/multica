@@ -123,7 +123,11 @@ export function CreateFormAttributeRow() {
               color={dueDate ? undefined : "#a1a1aa"}
             />
           }
-          label={dueDate ? formatDueDate(dueDate) : t("common:fields.due_date")}
+          label={
+            dueDate
+              ? formatDueDate(dueDate) || t("common:fields.due_date")
+              : t("common:fields.due_date")
+          }
           variant={dueDate ? "filled" : "dimmed"}
           onPress={() => open("due-date")}
         />
@@ -135,7 +139,7 @@ export function CreateFormAttributeRow() {
               <Ionicons name="folder-outline" size={14} color="#a1a1aa" />
             )
           }
-          label={project?.title ?? "Project"}
+          label={project?.title ?? t("common:fields.project")}
           variant={project ? "filled" : "dimmed"}
           onPress={() => open("project")}
         />
@@ -145,6 +149,7 @@ export function CreateFormAttributeRow() {
 }
 
 // due_date is a calendar day — format timezone-safely (no offset day shift).
+// An unparseable value falls back to the caller's localized chip label.
 function formatDueDate(iso: string): string {
-  return formatDateOnly(iso, { month: "short", day: "numeric" }) || "Due date";
+  return formatDateOnly(iso, { month: "short", day: "numeric" });
 }
