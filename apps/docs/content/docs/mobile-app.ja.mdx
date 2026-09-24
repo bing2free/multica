@@ -79,7 +79,7 @@ EXPO_PUBLIC_API_URL=https://api.example.com
 EXPO_PUBLIC_WEB_URL=https://app.example.com
 ```
 
-`.local` ファイルはコミット済みのデフォルトを上書きし、gitignore されるため、個人の API アドレスがリポジトリに入ることはありません。`EXPO_PUBLIC_API_URL` は必須です。`EXPO_PUBLIC_WEB_URL` は任意で、"Copy link" や "Open on web" などの入口に使われます。未設定の場合、これらのメニュー項目は表示されません。
+`.local` ファイルはコミット済みのデフォルトをキーごとに上書きし、gitignore されるため、個人の API アドレスがリポジトリに入ることはありません。`EXPO_PUBLIC_API_URL` は必須です。`EXPO_PUBLIC_WEB_URL` は "Copy link" や "Open on web" などの入口に使われます。コピーには両方を設定してください。書かなかったキーには multica.ai のデフォルト値が使われるため、これらの入口がセルフホストインスタンスではなく multica.ai を開きます。
 
 編集後にビルドコマンドを再実行します。iPhone がこの API アドレスに到達できる必要があります。LAN のアドレスを使う場合、`localhost` と書かないでください — iPhone 上では iPhone 自身を指します。
 

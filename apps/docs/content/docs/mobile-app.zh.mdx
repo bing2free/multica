@@ -79,7 +79,7 @@ EXPO_PUBLIC_API_URL=https://api.example.com
 EXPO_PUBLIC_WEB_URL=https://app.example.com
 ```
 
-`.local` 文件会覆盖提交的默认值，且已被 gitignore，个人 API 地址不会进入仓库。`EXPO_PUBLIC_API_URL` 必填；`EXPO_PUBLIC_WEB_URL` 可选，用于 "Copy link"、"Open on web" 等入口，不设置时这些菜单项不会显示。
+`.local` 文件会按 key 覆盖提交的默认值，且已被 gitignore，个人 API 地址不会进入仓库。`EXPO_PUBLIC_API_URL` 必填；`EXPO_PUBLIC_WEB_URL` 用于 "Copy link"、"Open on web" 等入口。两个都要在副本里设置：没写的 key 会沿用 multica.ai 的默认值，这些入口就会打开 multica.ai，而不是你的实例。
 
 修改后重新运行构建命令。iPhone 必须能访问这个 API 地址；使用局域网地址时，不要写 `localhost`，因为它在 iPhone 上指向手机本身。
 

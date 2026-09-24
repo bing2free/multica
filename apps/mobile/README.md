@@ -7,12 +7,10 @@ Expo + React Native iOS client for Multica. Independent from web/desktop — sha
 Multica isn't on the App Store yet — until that changes, anyone who wants it on their iPhone builds from source. One command:
 
 ```bash
-cp apps/mobile/.env.production.example apps/mobile/.env.production.local
-# Optional: edit the copy if you use a private backend or custom bundle ID.
 pnpm ios:mobile:device:prod:release
 ```
 
-The copied example connects to the same backend as `multica.ai`, so your existing account just works. `.env.production.local` is gitignored, so personal endpoints and bundle IDs stay local.
+This connects to the same backend as `multica.ai`, so your existing account just works. To use a private backend or your own bundle ID, copy `apps/mobile/.env.production.example` to `apps/mobile/.env.production.local` and edit the copy — it overrides the committed `.env.production` key by key and is gitignored, so personal values stay local.
 
 **Prerequisites**: Mac with Xcode, a free Apple ID added under Xcode → Settings → Accounts, iPhone connected via USB with [Developer Mode enabled](https://docs.expo.dev/guides/ios-developer-mode/). Walk through Expo's [Set up your environment](https://docs.expo.dev/get-started/set-up-your-environment/) (pick **Development build → iOS Device**) if any of that is missing.
 
@@ -42,7 +40,7 @@ Everything below is for app developers — you can ignore the rest if you only w
 |---|---|---|
 | `pnpm dev:mobile` | Metro only (reuse existing install) | local (`.env.development.local`) |
 | `pnpm dev:mobile:staging` | Metro only (reuse existing install) | staging (`.env.staging`) |
-| `pnpm dev:mobile:prod` | Metro only (reuse existing install) | production (`.env.production.local`) |
+| `pnpm dev:mobile:prod` | Metro only (reuse existing install) | production (`.env.production`, overridden by `.env.production.local`) |
 | `pnpm ios:mobile` | Full rebuild + install on **iOS Simulator**, Debug | local |
 | `pnpm ios:mobile:staging` | Full rebuild + install on **iOS Simulator**, Debug | staging |
 | `pnpm ios:mobile:prod` | Full rebuild + install on **iOS Simulator**, Debug | production |
