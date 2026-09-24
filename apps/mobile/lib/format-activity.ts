@@ -109,6 +109,34 @@ export function formatActivity(
       });
     case "description_updated":
       return t("issues:activity.description_updated");
+    // Duplicate marks (MUL-7349); copy mirrors packages/views/locales/en.
+    case "duplicate_marked":
+      return t("issues:activity.duplicate_marked", {
+        identifier: details.original_identifier ?? "?",
+      });
+    case "duplicate_unmarked": {
+      const identifier = details.original_identifier ?? "?";
+      if (details.reason === "original_deleted") {
+        return t("issues:activity.duplicate_unmarked_original_deleted", {
+          identifier,
+        });
+      }
+      if (details.to) {
+        return t("issues:activity.duplicate_unmarked_to", {
+          identifier,
+          status: statusName(details.to, resolveStatusLabel),
+        });
+      }
+      return t("issues:activity.duplicate_unmarked", { identifier });
+    }
+    case "duplicate_added":
+      return t("issues:activity.duplicate_added", {
+        identifier: details.duplicate_identifier ?? "?",
+      });
+    case "duplicate_removed":
+      return t("issues:activity.duplicate_removed", {
+        identifier: details.duplicate_identifier ?? "?",
+      });
     case "task_completed": {
       const n = entry.coalesced_count ?? 1;
       return t("issues:activity.tasks_completed", { count: n });
